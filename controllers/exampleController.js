@@ -39,7 +39,7 @@ function store(req, res) {
 
 function update(req, res) {
   const id = parseInt(req.params.id);
-  const item = exmples.find((item) => item.id === id);
+  const item = examples.find((item) => item.id === id);
   if (!item) {
     throw new CustomError("L'elemento non esiste", 404);
   }
@@ -56,9 +56,9 @@ function update(req, res) {
 }
 function destroy(req, res) {
   const id = parseInt(req.params.id);
-  const index = example.findIndex((item) => item.id === id);
+  const index = examples.findIndex((item) => item.id === id);
   if (index !== -1) {
-    menu.splice(index, 1);
+    examples.splice(index, 1);
     res.sendStatus(204);
   } else {
     throw new CustomError("L'elemento non esiste", 404);
